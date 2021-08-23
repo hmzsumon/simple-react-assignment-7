@@ -24,14 +24,13 @@ const Player = ({ player }) => {
 	const [inListed, setInListed] = useState(false);
 
 	const classes = useStyles();
-	const { img, fullName, playRole, id, salary } = player;
+	const { img, fullName, id, salary } = player;
 
 	const showDetailsHandler = () => {
 		dispatch({ type: 'SHOW_DETAILS', payload: id });
 	};
 	const addToListHandler = () => {
 		dispatch({ type: 'ADD_TO_TEAMS', payload: id });
-
 		setInListed(true);
 	};
 

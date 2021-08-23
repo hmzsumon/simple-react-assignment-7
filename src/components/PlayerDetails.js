@@ -13,9 +13,13 @@ import { useContext } from 'react';
 import { Store } from '../utils/Store';
 
 const PlayerDetails = () => {
-	const { state } = useContext(Store);
+	const { state, dispatch } = useContext(Store);
 	const { player } = state;
 	const classes = useStyles();
+
+	const addToListHandler = () => {
+		dispatch({ type: 'ADD_TO_TEAMS', payload: player.id });
+	};
 
 	return (
 		<Container>
@@ -88,7 +92,11 @@ const PlayerDetails = () => {
 								</Typography>
 							</Grid>
 							<Grid item md={3} sm={6} xs={12}>
-								<Button fullWidth variant='contained'>
+								<Button
+									fullWidth
+									variant='contained'
+									onClick={() => addToListHandler(player.id)}
+								>
 									Add To List
 								</Button>
 							</Grid>

@@ -10,8 +10,7 @@ const PlayersList = () => {
 		<Container>
 			<Grid container spacing={3}>
 				{players.map((player) => {
-					const { id, fullName, img, playRole } = player;
-					return <Player player={player} />;
+					return <Player key={player.id} player={player} />;
 				})}
 			</Grid>
 		</Container>
